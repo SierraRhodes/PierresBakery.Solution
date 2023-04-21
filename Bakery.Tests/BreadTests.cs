@@ -9,22 +9,20 @@ namespace Bakery.Tests
     [TestMethod]
     public void Bread_InstantiateBread_ReturnBread()
     {
-       Bread testBread = new Bread();
-       testBread.Price = 5.00m;
-       testBread.Quantity = 2;
+       Bread testBread = new Bread(5.00m, 2);
 
-       Assert.AreEqual(5.00m, testBread.Price);
+       Assert.AreEqual(5.00m, testBread.GetPrice());
        Assert.AreEqual(2, testBread.Quantity);
     }
 
     [TestMethod]
     public void SetPrice_SetPriceValue_ReturnCorrectValue()
     {
-      Bread testBread = new Bread();
+      Bread testBread = new Bread(5.00m, 2);
       decimal expectedPrice = 5.00m;
       
       testBread.Price = expectedPrice;
-      decimal actualPrice = testBread.Price;
+      decimal actualPrice = testBread.GetPrice();
 
       Assert.AreEqual(actualPrice, expectedPrice);
     }
@@ -32,7 +30,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void SetQuantity_SetQuantityValue_ReturnCorrectValue()
     {
-      Bread testBread = new Bread();
+      Bread testBread = new Bread(5.00m, 2);
       int expectedQuantity = 2;
 
       testBread.Quantity = expectedQuantity;
@@ -40,5 +38,17 @@ namespace Bakery.Tests
 
       Assert.AreEqual(actualQuantity, expectedQuantity);
     }
+
+    [TestMethod]
+    public void GetPrice_GetValueOfPrice_ReturnPrice()
+    {
+      Bread testBread = new Bread(5.00m, 2);
+      testBread.Price = 5.00m;
+
+      decimal actualPrice = testBread.GetPrice();
+
+      Assert.AreEqual(5.00m, actualPrice);
+    }
+
   }
 }
