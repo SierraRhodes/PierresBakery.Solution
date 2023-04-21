@@ -17,6 +17,7 @@ namespace Bakery.Tests
        Assert.AreEqual(2.00m, testPastry.Price);
        Assert.AreEqual(3, testPastry.Quantity);
     }
+
      [TestMethod]
     public void SetPrice_SetPriceValue_ReturnCorrectValue()
     {
@@ -27,6 +28,18 @@ namespace Bakery.Tests
       decimal actualPrice = testPastry.Price;
 
       Assert.AreEqual(actualPrice, expectedPrice);
+    }
+
+      [TestMethod]
+    public void SetQuantity_SetQuantityValue_ReturnCorrectValue()
+    {
+      Pastry testPastry = new Pastry(2.00m, 10);
+      int expectedQuantity = 10;
+
+      testPastry.Quantity = expectedQuantity;
+      int actualQuantity = testPastry.Quantity;
+
+      Assert.AreEqual(actualQuantity, expectedQuantity);
     }
   }
 }
