@@ -28,5 +28,17 @@ namespace Bakery.Tests
 
       Assert.AreEqual(actualPrice, expectedPrice);
     }
+
+    [TestMethod]
+    public void SetQuantity_SetQuantityValue_ReturnCorrectValue()
+    {
+      Bread testBread = new Bread();
+      int expectedQuantity = 2;
+
+      testBread.Quantity = expectedQuantity;
+      int actualQuantity = testBread.Quantity;
+
+      Assert.AreEqual(actualQuantity, expectedQuantity);
+    }
   }
 }
