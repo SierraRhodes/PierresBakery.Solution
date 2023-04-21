@@ -60,6 +60,7 @@ namespace Bakery.Tests
 
       Assert.AreEqual(2, actualQuantity);
     }
+
     [TestMethod]
     public void CalculateCost_GetTotalBread_ReturnCost()
     {
@@ -68,6 +69,19 @@ namespace Bakery.Tests
       decimal cost = testBread.GetPrice() * testBread.GetQuantity(); 
 
       Assert.AreEqual(10.00m, cost);
+    }
+
+    [TestMethod]
+    public void DiscountPrice_GiveDiscount_ReturnTotalCost()
+    {
+      Bread testBread = new Bread(5.00m, 3);
+
+      decimal cost = testBread.GetPrice() * testBread.GetQuantity();
+      int discountLoaves = testBread.GetQuantity() / 2;
+      decimal freeLoaf = discountLoaves * 5.00m;
+      decimal totalCost = cost -= freeLoaf;
+
+      Assert.AreEqual(10.00m, totalCost); 
     }
   }
 }
