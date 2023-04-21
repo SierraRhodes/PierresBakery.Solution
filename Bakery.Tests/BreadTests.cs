@@ -16,5 +16,17 @@ namespace Bakery.Tests
        Assert.AreEqual(5.00m, testBread.Price);
        Assert.AreEqual(2, testBread.Quantity);
     }
+
+    [TestMethod]
+    public void SetPrice_SetPriceValue_ReturnCorrectValue()
+    {
+      Bread testBread = new Bread();
+      decimal expectedPrice = 5.00m;
+      
+      testBread.Price = expectedPrice;
+      decimal actualPrice = testBread.Price;
+
+      Assert.AreEqual(actualPrice, expectedPrice);
+    }
   }
 }
