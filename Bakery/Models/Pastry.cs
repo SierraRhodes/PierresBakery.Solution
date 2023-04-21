@@ -4,5 +4,14 @@ namespace Bakery.Models
   {
     public decimal Price { get; set; }
     public int Quantity { get; set; }
+
+    public Pastry (decimal Price, int Quantity)
+    {
+      this.Price = Price;
+      this.Quantity = Quantity;
+    }
+
+
   }
+
 }
