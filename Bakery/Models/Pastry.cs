@@ -2,6 +2,7 @@ namespace Bakery.Models
 {
   public class Pastry
   {
-    // properties, constructors, methods, etc. go here
+    public decimal Price { get; set; }
+    public int Quantity { get; set; }
   }
 }
