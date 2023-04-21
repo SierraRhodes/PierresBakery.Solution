@@ -60,5 +60,14 @@ namespace Bakery.Tests
 
       Assert.AreEqual(2, actualQuantity);
     }
+    [TestMethod]
+    public void CalculateCost_GetTotalBread_ReturnCost()
+    {
+      Bread testBread = new Bread(5.00m, 2);
+
+      decimal cost = testBread.GetPrice() * testBread.GetQuantity(); 
+
+      Assert.AreEqual(10.00m, cost);
+    }
   }
 }
