@@ -22,7 +22,7 @@ namespace Bakery.Models
     {
       decimal pricePerLoaf = GetPrice();
       int quantity = GetQuantity();
-      int discountLoaves = quantity / 2;
+      int discountLoaves = quantity / 3;
       decimal freeLoaves = discountLoaves *  5.00m;
       decimal cost = pricePerLoaf * quantity;
       decimal totalCost = cost -= freeLoaves;
