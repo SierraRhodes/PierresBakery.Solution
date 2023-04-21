@@ -12,7 +12,7 @@ namespace Bakery.Tests
        Bread testBread = new Bread(5.00m, 2);
 
        Assert.AreEqual(5.00m, testBread.GetPrice());
-       Assert.AreEqual(2, testBread.Quantity);
+       Assert.AreEqual(2, testBread.GetQuantity());
     }
 
     [TestMethod]
@@ -34,7 +34,7 @@ namespace Bakery.Tests
       int expectedQuantity = 2;
 
       testBread.Quantity = expectedQuantity;
-      int actualQuantity = testBread.Quantity;
+      int actualQuantity = testBread.GetQuantity();
 
       Assert.AreEqual(actualQuantity, expectedQuantity);
     }
@@ -50,5 +50,15 @@ namespace Bakery.Tests
       Assert.AreEqual(5.00m, actualPrice);
     }
 
+    [TestMethod]
+    public void GetQuantity_GetValueOfQuantity_ReturnQuantity()
+    {
+      Bread testBread = new Bread(5.00m, 2);
+      testBread.Quantity = 2;
+
+      int actualQuantity = testBread.GetQuantity();
+
+      Assert.AreEqual(2, actualQuantity);
+    }
   }
 }
