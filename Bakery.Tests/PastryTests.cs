@@ -14,8 +14,8 @@ namespace Bakery.Tests
        testPastry.Price = 2.00m;
        testPastry.Quantity = 3;
 
-       Assert.AreEqual(2.00m, testPastry.Price);
-       Assert.AreEqual(3, testPastry.Quantity);
+       Assert.AreEqual(2.00m, testPastry.GetPrice());
+       Assert.AreEqual(3, testPastry.GetQuantity());
     }
 
      [TestMethod]
@@ -25,7 +25,7 @@ namespace Bakery.Tests
       decimal expectedPrice = 2.00m;
       
       testPastry.Price = expectedPrice;
-      decimal actualPrice = testPastry.Price;
+      decimal actualPrice = testPastry.GetPrice();
 
       Assert.AreEqual(actualPrice, expectedPrice);
     }
@@ -37,7 +37,7 @@ namespace Bakery.Tests
       int expectedQuantity = 10;
 
       testPastry.Quantity = expectedQuantity;
-      int actualQuantity = testPastry.Quantity;
+      int actualQuantity = testPastry.GetQuantity();
 
       Assert.AreEqual(actualQuantity, expectedQuantity);
     }
@@ -61,6 +61,16 @@ namespace Bakery.Tests
       int actualQuantity = testPastry.GetQuantity();
 
       Assert.AreEqual(4, actualQuantity);
+    }
+
+     [TestMethod]
+    public void CalculateCost_GetTotalPastries_ReturnCost()
+    {
+      Pastry testPastry = new Pastry (2.00m, 4);
+
+      decimal cost = testPastry.GetPrice() * testPastry.GetQuantity(); 
+
+      Assert.AreEqual(8.00m, cost);
     }
   }
 }
