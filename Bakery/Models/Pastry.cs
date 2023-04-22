@@ -20,6 +20,17 @@ namespace Bakery.Models
       return Quantity;
     }
 
+     public decimal CalculateCost()
+    {
+      decimal pricePerPastry = GetPrice();
+      int quantity = GetQuantity();
+      int discountPastries = quantity / 4;
+      decimal freePastries = discountPastries * 2.00m;
+      decimal cost = pricePerPastry * quantity;
+      decimal totalCost = cost -= freePastries;
+      return totalCost;
+    }
+
 
   }
 
