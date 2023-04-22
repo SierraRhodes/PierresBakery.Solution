@@ -31,6 +31,14 @@ namespace Bakery.Models
       return totalCost;
     }
 
+    public decimal TotalAmountDue(int breadQuantity, int pastryQuantity)
+    {
+      Bread breadOrder = new Bread(0.00m, 0);
+      Pastry pastryOrder = new Pastry(0.00m, 0);
+      decimal totalDue = breadOrder.CalculateCost() + pastryOrder.CalculateCost();
+      return totalDue;
+    }
+
 
   }
 
