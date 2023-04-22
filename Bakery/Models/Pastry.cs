@@ -10,6 +10,15 @@ namespace Bakery.Models
       this.Price = Price;
       this.Quantity = Quantity;
     }
+    public decimal GetPrice()
+    {
+      return Price;
+    }
+
+    public int GetQuantity()
+    {
+      return Quantity;
+    }
 
 
   }

@@ -41,5 +41,26 @@ namespace Bakery.Tests
 
       Assert.AreEqual(actualQuantity, expectedQuantity);
     }
+      [TestMethod]
+    public void GetPrice_GetValueOfPrice_ReturnPrice()
+    {
+      Pastry testPastry = new Pastry(2.00m, 4);
+      testPastry.Price = 2.00m;
+
+      decimal actualPrice = testPastry.GetPrice();
+
+      Assert.AreEqual(2.00m, actualPrice);
+    }
+
+     [TestMethod]
+    public void GetQuantity_GetValueOfQuantity_ReturnQuantity()
+    {
+      Pastry testPastry = new Pastry (2.00m, 4);
+      testPastry.Quantity = 4;
+
+      int actualQuantity = testPastry.GetQuantity();
+
+      Assert.AreEqual(4, actualQuantity);
+    }
   }
 }
