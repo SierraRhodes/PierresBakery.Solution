@@ -85,5 +85,16 @@ namespace Bakery.Tests
 
       Assert.AreEqual(10.00m, totalCost); 
     }
+
+    [TestMethod]
+    public void TotalAmountDue_CalculateBreadAndPastry_ReturnTotalDdue()
+    {
+      Bread testBread = new Bread(5.00m, 2);
+      Pastry testPastry = new Pastry(2.00m, 5);
+
+      decimal totalDue = testBread.CalculateCost() + testPastry.CalculateCost();
+
+      Assert.AreEqual(18.00m, totalDue);
+    }
   }
 }
