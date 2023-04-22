@@ -72,5 +72,18 @@ namespace Bakery.Tests
 
       Assert.AreEqual(8.00m, cost);
     }
+
+     [TestMethod]
+    public void DiscountPrice_GiveDiscount_ReturnTotalCost()
+    {
+      Pastry testPastry = new Pastry(2.00m, 6);
+
+      decimal cost = testPastry.GetPrice() * testPastry.GetQuantity();
+      int discountPastries = testPastry.GetQuantity() / 4;
+      decimal freePastry = discountPastries * 2.00m;
+      decimal totalCost = cost -= freePastry;
+
+      Assert.AreEqual(10.00m, totalCost); 
+    }
   }
 }
