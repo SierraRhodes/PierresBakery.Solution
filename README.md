@@ -9,8 +9,6 @@
 * _C#_
 * _MSTest_
 
-*_.Net_
-
 ## Description
 
 _This application ask the user for the amount of bread and pasteries they would like to order, discounts the bread and pastries based off of the amount they order, and returns the total amount due._
