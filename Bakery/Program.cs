@@ -24,6 +24,10 @@ class Program
     decimal orderTotal = bread.CalculateCost() + pastry.CalculateCost();
 
     Console.WriteLine($"Your total amount due is ${orderTotal:F2}. Thank you for ordering with us!");
+
+    Console.WriteLine("Press any key to exit...");
+    Console.ReadKey();
+
   }
  }
 }
