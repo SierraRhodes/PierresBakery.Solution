@@ -1,33 +1,29 @@
-using System;
-using Bakery.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Bakery.UI
+namespace ProjectName
 {
-class Program
-{
-  static void Main()
+  class Program
   {
-    Console.WriteLine("Welcome to Pierre's Bakery!");
-    Console.WriteLine("Press any key to get started!");
-    Console.ReadKey();
+    static void Main(string[] args)
+    {
+      WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-    Console.WriteLine("How many loaves of bread would you like to order?: ");
-    string breadInput = Console.ReadLine();
-    int breadQuantity = int.Parse(breadInput);
+      builder.Services.AddControllersWithViews();
 
-    Console.WriteLine("How many pastries would you like to order?: ");
-    string pastryInput = Console.ReadLine();
-    int pastryQuantity = int.Parse(pastryInput); 
+      WebApplication app = builder.Build();
 
-    Bread bread = new Bread(5.00m, breadQuantity);
-    Pastry pastry = new Pastry(2.00m, pastryQuantity);
-    decimal orderTotal = bread.CalculateCost() + pastry.CalculateCost();
+      // app.UseDeveloperExceptionPage();
+      app.UseHttpsRedirection();
 
-    Console.WriteLine($"Your total amount due is ${orderTotal:F2}. Thank you for ordering with us!");
+      app.UseRouting();
 
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
+      app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+      );
 
+      app.Run();
+    }
   }
- }
 }
