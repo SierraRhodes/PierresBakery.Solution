@@ -16,5 +16,18 @@ namespace Bakery.Tests
 
       Assert.IsNotNull(testVendor.Orders);
     }
+    [TestMethod]
+    public void Vendor_CountOrders_ReturnCount()
+    {
+      Vendor testVendor = new Vendor("Rainbow Teahouse", "A teahouse");
+      testVendor.Orders.Add(new Order("Croissant", 3, new DateTime(2023, 5, 2)));
+      testVendor.Orders.Add(new Order("Baguette", 2, new DateTime(2023, 5, 2)));
+      testVendor.Orders.Add(new Order("Pain au chocolat", 5, new DateTime(2023, 5, 2)));
+
+      int orderCount = testVendor.Orders.Count;
+
+      Assert.AreEqual(3, orderCount);
+
+    }
   }
 } 
