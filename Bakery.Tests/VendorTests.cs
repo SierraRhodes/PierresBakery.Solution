@@ -46,19 +46,19 @@ namespace Bakery.Tests
       CollectionAssert.AreEqual(expectedVendors, actualVendors);
       
     }
-    //  [TestMethod]
-    //  public void ClearAll_ClearVendorList_VendorsList()
-    //  {
-    //   Vendor testVendor = new Vendor("Rainbow Teahouse", "A teahouse");
-    //   Vendor.ClearAll();
+     [TestMethod]
+     public void ClearAll_ClearVendorList_VendorsList()
+     {
+      Vendor testVendor = new Vendor("Rainbow Teahouse", "A teahouse");
+      Vendor.ClearAll();
 
-    //   List<Vendor> expectedList = new List<Vendor>();
-    //   List<Vendor> resultList = Vendor.GetAll();
+      List<Vendor> expectedList = new List<Vendor>();
+      List<Vendor> resultList = Vendor.GetAll();
 
-    //   CollectionAssert.AreEqual(expectedList, resultList);
+      CollectionAssert.AreEqual(expectedList, resultList);
 
 
 
-    //  }
+     }
   }
 } 
