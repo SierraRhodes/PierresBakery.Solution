@@ -8,6 +8,7 @@ namespace Bakery.Models
     public string Description { get; set; }
     public List<Order> Orders { get; set; } = new List<Order>();
     private static List<Vendor> _instances = new List<Vendor>();
+     public int Id { get; }
     public int OrderCount
     {
       get
@@ -20,6 +21,7 @@ namespace Bakery.Models
       Name = name;
       Description = description;
       _instances.Add(this);
+      Id = _instances.Count;
     }
     public static List<Vendor>GetAll()
     {
@@ -28,6 +30,10 @@ namespace Bakery.Models
     public static void ClearAll()
     {
       _instances.Clear();
+    }
+       public static Vendor Find(int searchId)
+    {
+      return _instances[searchId-1];
     }
 
 
