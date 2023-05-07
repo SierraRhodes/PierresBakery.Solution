@@ -1,12 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Bakery.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
     [TestMethod]
     public void Vendor_InstantiateVendor_ReturnVendor()
     {
@@ -29,5 +34,31 @@ namespace Bakery.Tests
       Assert.AreEqual(3, orderCount);
 
     }
+    [TestMethod]
+    public void GetAll_ReturnAllVendors_VendorList()
+    {
+      Vendor vendor1 = new Vendor("Bakery A", "Description A");
+      Vendor vendor2 = new Vendor("Bakery B", "Description B");
+      List<Vendor> expectedVendors = new List<Vendor> {vendor1, vendor2};
+
+      List<Vendor> actualVendors = Vendor.GetAll();
+
+      CollectionAssert.AreEqual(expectedVendors, actualVendors);
+      
+    }
+    //  [TestMethod]
+    //  public void ClearAll_ClearVendorList_VendorsList()
+    //  {
+    //   Vendor testVendor = new Vendor("Rainbow Teahouse", "A teahouse");
+    //   Vendor.ClearAll();
+
+    //   List<Vendor> expectedList = new List<Vendor>();
+    //   List<Vendor> resultList = Vendor.GetAll();
+
+    //   CollectionAssert.AreEqual(expectedList, resultList);
+
+
+
+    //  }
   }
 } 
