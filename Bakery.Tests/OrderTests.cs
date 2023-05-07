@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Bakery.Tests
 {
@@ -35,6 +36,20 @@ namespace Bakery.Tests
       int result = testOrder.Id;
       
       Assert.AreEqual(1, result);
+    }
+      [TestMethod]
+    public void GetAll_ReturnAllOrders_OrderList()
+    {
+      DateTime orderDate = new DateTime(2020, 5, 2);
+      Order order1 = new Order("Baguette", 3, orderDate);
+      DateTime orderDate2 = new DateTime(2021, 4, 22);
+      Order order2 = new Order("Pastry", 3, orderDate2);
+      List<Order> expectedOrders = new List<Order> {order1, order2};
+
+      List<Order> actualOrders = Order.GetAll();
+
+      CollectionAssert.AreEqual(expectedOrders, actualOrders);
+      
     }
   }
 }
