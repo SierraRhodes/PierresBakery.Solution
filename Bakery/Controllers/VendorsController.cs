@@ -22,6 +22,7 @@ namespace Bakery.Controllers
    public ActionResult Create(string name, string description)
    {
      Vendor newVendor = new Vendor(name, description);
+
      return RedirectToAction("Index");
    }
    [HttpPost("/vendors/clearall")]
@@ -29,6 +30,14 @@ namespace Bakery.Controllers
    {
     Vendor.ClearAll();
     return RedirectToAction("Index");
+   }
+   [HttpGet("/vendors/{id}")]
+   public ActionResult Show(int id)
+   {
+    Vendor vendor = Vendor.Find(id);
+    return View(vendor);
+
+
    }
  }
 }
