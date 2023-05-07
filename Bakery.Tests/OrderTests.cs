@@ -51,7 +51,7 @@ namespace Bakery.Tests
       CollectionAssert.AreEqual(expectedOrders, actualOrders);  
     }
       [TestMethod]
-      public void Find_ReturnCorrectItem_Item()
+      public void Find_ReturnCorrectOrder_Order()
       {
         Order testOrder1 = new Order("Croissant", 2, new DateTime(2023, 5, 2));
         Order testOrder2 = new Order("Baguette", 5, new DateTime(2022, 4, 22));

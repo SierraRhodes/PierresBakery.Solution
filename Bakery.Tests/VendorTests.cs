@@ -56,9 +56,16 @@ namespace Bakery.Tests
       List<Vendor> resultList = Vendor.GetAll();
 
       CollectionAssert.AreEqual(expectedList, resultList);
-
-
-
      }
+      [TestMethod]
+      public void Find_ReturnCorrectVendor_Vendor()
+      {
+        Vendor testVendor1 = new Vendor("Rainbow Teahouse", "A teahouse");
+        Vendor testVendor2 = new Vendor("The Island", "A Bakery");
+
+        Vendor result = Vendor.Find(2);
+
+        Assert.AreEqual(testVendor2, result);
+      }
   }
 } 
