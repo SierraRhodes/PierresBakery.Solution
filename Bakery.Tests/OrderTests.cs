@@ -48,8 +48,17 @@ namespace Bakery.Tests
 
       List<Order> actualOrders = Order.GetAll();
 
-      CollectionAssert.AreEqual(expectedOrders, actualOrders);
-      
+      CollectionAssert.AreEqual(expectedOrders, actualOrders);  
     }
+      [TestMethod]
+      public void Find_ReturnCorrectItem_Item()
+      {
+        Order testOrder1 = new Order("Croissant", 2, new DateTime(2023, 5, 2));
+        Order testOrder2 = new Order("Baguette", 5, new DateTime(2022, 4, 22));
+
+        Order result = Order.Find(2);
+
+        Assert.AreEqual(testOrder2, result);
+      }
   }
 }
