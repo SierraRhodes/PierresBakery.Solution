@@ -7,19 +7,21 @@ namespace Bakery.Controllers
 {
     public class OrdersController : Controller
     {
-        [HttpGet("/vendors/{id}/orders/new")]
-       public ActionResult New()
+        [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
+       public ActionResult Show(int vendorId, int orderId)
        {
-         return View();
+         Order order = Order.Find(orderId);
+         Vendor vendor = Vendor.Find(vendorId);
+         Dictionary<string, object> model = new Dictionary<string, object>();
+         model.Add("order", order);
+         model.Add("vendor", vendor);
+         return View(model);
        }
-
-        // [HttpPost("/vendors/{id}/orders")]
-        // public ActionResult Create(int id, string item, int quantity, DateTime date)
-        // {
-        //     Vendor vendor = Vendor.Find(id);
-        //     Order newOrder = new Order(item, quantity, date);
-        //     vendor.Orders.Add(newOrder);
-        //     return RedirectToAction();
-        // }
+       [HttpGet("/vendors/{vendorId}/orders/new")]
+       public ActionResult New(int vendorId)
+      {
+        Vendor vendor = Vendor.Find(vendorId);
+        return View(vendor);
+      }
     }
 }

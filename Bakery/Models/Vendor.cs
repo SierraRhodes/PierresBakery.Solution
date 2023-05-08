@@ -6,9 +6,10 @@ namespace Bakery.Models
   {
     public string Name { get; set; }
     public string Description { get; set; }
-    public List<Order> Orders { get; set; } = new List<Order>();
+    public List<Order> Orders { get; set; }
     private static List<Vendor> _instances = new List<Vendor>();
      public int Id { get; }
+  
     public int OrderCount
     {
       get
@@ -22,6 +23,7 @@ namespace Bakery.Models
       Description = description;
       _instances.Add(this);
       Id = _instances.Count;
+      Orders = new List<Order>{};
     }
     public static List<Vendor>GetAll()
     {
@@ -35,6 +37,10 @@ namespace Bakery.Models
     {
       return _instances[searchId-1];
     }
+     public void AddItem(Order order)
+  {
+    Orders.Add(order);
+  }
 
 
   }

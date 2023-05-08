@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Bakery.Models;
 using System.Collections.Generic;
+using System;
 
 namespace Bakery.Controllers
 {
@@ -9,8 +10,8 @@ namespace Bakery.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> vendors = Vendor.GetAll();
-      return View(vendors);
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
     }
   
    [HttpGet("/vendors/new")]
@@ -22,7 +23,6 @@ namespace Bakery.Controllers
    public ActionResult Create(string name, string description)
    {
      Vendor newVendor = new Vendor(name, description);
-
      return RedirectToAction("Index");
    }
    [HttpPost("/vendors/clearall")]
@@ -34,10 +34,26 @@ namespace Bakery.Controllers
    [HttpGet("/vendors/{id}")]
    public ActionResult Show(int id)
    {
-    Vendor vendor = Vendor.Find(id);
-    return View(vendor);
-
+     Dictionary<string, object> model = new Dictionary<string, object>();
+    Vendor selectedVendor = Vendor.Find(id);
+    List<Order> foundOrders = selectedVendor.Orders;
+    model.Add("vendors", selectedVendor);
+    model.Add("orders", foundOrders);
+    return View(model);
 
    }
+     [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string item, int quantity, DateTime date)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(item, quantity, date);
+      foundVendor.AddItem(newOrder);
+      List<Order> vendorOrders = foundVendor.Orders;
+      model.Add("orders", vendorOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
+    }
+   
  }
 }

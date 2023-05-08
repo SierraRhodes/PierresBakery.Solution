@@ -7,7 +7,8 @@
   <title>Pierre's Bakery</title>
 </head>
 <body>
-  <form action="/vendors/vendor.Id/orders/new" method="post">
+  <form action="/vendors/@Model.Id/orders" method="post">
+      <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
       <label for="item">Add order item</label>
       <input id="item" name="item" type="text">
         <label for="quantity">Add quantity</label>
