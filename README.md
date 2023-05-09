@@ -2,16 +2,17 @@
 
 #### By _**Sierra Rhodes**_
 
-#### _This application returns the total price of the user's order._
+#### _This application creates a webpage that allows the user to create a vendor and view a list of them as well as create an order for a vendor and view a list of them._
 
 ## Technologies Used
 
 * _C#_
 * _MSTest_
+* _MVC_
 
 ## Description
 
-_This application ask the user for the amount of bread and pasteries they would like to order, discounts the bread and pastries based off of the amount they order, and returns the total amount due._
+_This application creates a webpage that allows the user to create a vendor and view a list of them as well as create an order for a vendor and view a list of them. It also allows the user to delete a list of vendors._
 
 ## Setup/Installation Requirements
 
@@ -19,6 +20,18 @@ _This application ask the user for the amount of bread and pasteries they would 
 * _inside of the command line input git clone and paste the link_
 * _navigate to the Bakery directory and run dotnet restore into the command line_
 * _navigate to the Bakery.Tests directory and run dotnet test to see if it is functional_
+* _create a gitignore file and add appsetting.json. Commit change 
+* _ Add an appsetting.json file within the root within the root directory and add the following contents, replacing the following values with your own:
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=[YOUR-DB-NAME];uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
+  }
+}
+
+[YOUR-USER-HERE] with your username
+[YOUR-PASSWORD-HERE] with your password
+[YOUR-DB-NAME] with the name of your database
+
 
 ## Known Bugs
 
