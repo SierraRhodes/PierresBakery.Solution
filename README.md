@@ -20,18 +20,6 @@ _This application creates a webpage that allows the user to create a vendor and 
 * _inside of the command line input git clone and paste the link_
 * _navigate to the Bakery directory and run dotnet restore into the command line_
 * _navigate to the Bakery.Tests directory and run dotnet test to see if it is functional_
-* _create a gitignore file and add appsetting.json. Commit change 
-* _ Add an appsetting.json file within the root within the root directory and add the following contents, replacing the following values with your own:
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=[YOUR-DB-NAME];uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
-  }
-}
-
-[YOUR-USER-HERE] with your username
-[YOUR-PASSWORD-HERE] with your password
-[YOUR-DB-NAME] with the name of your database
-
 
 ## Known Bugs
 
