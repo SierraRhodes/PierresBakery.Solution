@@ -34,10 +34,10 @@ namespace Bakery.Controllers
    [HttpGet("/vendors/{id}")]
    public ActionResult Show(int id)
    {
-     Dictionary<string, object> model = new Dictionary<string, object>();
+    Dictionary<string, object> model = new Dictionary<string, object>();
     Vendor selectedVendor = Vendor.Find(id);
     List<Order> foundOrders = selectedVendor.Orders;
-    model.Add("vendors", selectedVendor);
+    model.Add("vendor", selectedVendor);
     model.Add("orders", foundOrders);
     return View(model);
 
@@ -51,7 +51,7 @@ namespace Bakery.Controllers
       foundVendor.AddItem(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
-      model.Add("vendor", foundVendor);
+      model.Add("vendors", foundVendor);
       return View("Show", model);
     }
    
