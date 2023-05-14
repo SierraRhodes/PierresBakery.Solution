@@ -18,7 +18,9 @@ _This application creates a webpage that allows the user to create a vendor and 
 
 * _copy link of project_
 * _inside of the command line input git clone and paste the link_
-* _navigate to the Bakery directory and run dotnet restore into the command line_
+* _navigate to the Bakery directory and run dotnet run i n the command line_
+* _open up a new browser window and put in localhost://5000/
+*_Add dotnet restore into the command line_
 * _navigate to the Bakery.Tests directory and run dotnet test to see if it is functional_
 
 ## Known Bugs
